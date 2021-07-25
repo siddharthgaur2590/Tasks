@@ -1,0 +1,108 @@
+// CSS to style all elements under header.
+.todoapp .header {
+  padding: 3rem;
+  text-align: center;
+  background: darkslategray;
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
+
+  img {
+    float: left;
+    width: 8rem;
+    height: 8rem;
+    background: #555;
+  }
+
+  ::placeholder {
+    color: darksalmon;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  .input-todo-item {
+    color: brown;
+    font-family: system-ui;
+    block-size: 1.5rem;
+    width: 22rem;
+    margin-right: 5rem;
+  }
+}
+
+// CSS to style all elements under section.
+.todoapp .section {
+  position: relative;
+}
+
+.todoapp .custom-todo-list {
+  list-style-type: none;
+}
+
+.view-container {
+  position: relative;
+
+  // CSS for todo title text
+  label {
+    font-size: medium;
+    font-family: system-ui;
+    position: relative;
+    margin-left: 38rem;
+    top: 0.3rem;
+  }
+
+  // CSS for checkbox
+  .custom-checkbox-style {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    height: 1.6rem;
+    position: absolute;
+    width: 2.6rem;
+    margin-left: 35rem;
+  }
+
+  .edit-title-input {
+    font-size: medium;
+    font-family: system-ui;
+    position: relative;
+    margin-left: 38rem;
+    top: 0.2rem;
+  }
+}
+
+.view-container input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+}
+
+.fa-close {
+  color: darksalmon;
+}
+
+.delete-icon-button {
+  margin-left: 66rem;
+  margin-top: -1rem;
+  position: relative;
+  font-size: 1.2rem;
+  padding: 2px 0px 5px 0px;
+}
+
+// CSS to style all elements under footer.
+.todoapp .footer {
+  font-family: system-ui;
+  padding: 3rem;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
+
+  .list-count {
+    color: black;
+    font-size: 1.3rem;
+  }
+
+  .action-button {
+    margin-left: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: darkslategray;
+  }
+}

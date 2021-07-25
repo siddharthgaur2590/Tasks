@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="todoapp">
+    <header class="header">
+        <img src="assets/todo-app-images/casestudy-logo.png" alt="" />
+        <h1 style="margin-right: 6rem;">Todos Application for Silverhorn</h1>
+        <input class="input-todo-item" type="text" placeholder="What needs to be done? Please state here..." autofocus=""
+            [(ngModel)]="todoToAdd.title" (keyup.enter)="addTodoItem()">
+    </header>
+    <section class="section" *ngIf="filteredTodoList.length > 0">
+        <ul class="custom-todo-list">
+            <li *ngFor="let todo of filteredTodoList" [class.completed]="todo.completed"
+                [class.isEditable]="todo.isEditable">
+                <div class="view-container">
+                    <input class="custom-checkbox-style" type="checkbox" (click)="toggleTodoComplete(todo)"
+                        [checked]="todo.completed">
+                    <label *ngIf="!todo.isEditable" (dblclick)="editableTodo(todo)">{{todo.title}}</label>
+                    <input class="edit-title-input" *ngIf="todo.isEditable" [value]="todo.title" #editedtodo
+                        (keyup.enter)="updateChangedTodoItem(todo, editedtodo.value)"                        
+                        (keyup.escape)="cancelEditingTodoItem(todo)">
+
+                </div>
+                <div class="delete-icon-button"><button (click)="deleteTodoItemById(todo.id)"><i
+                            class="fa fa-close"></i></button></div>
+            </li>
+        </ul>
+    </section>
+    <footer class="footer">
+        <span class="list-count">
+            <strong>{{filteredTodoList.length}}</strong> {{filteredTodoList.length >= 2 ? 'items are'
+            : 'item is'}} {{countResultText}}</span>
+        <div style="margin-top: 1rem;">
+            <button class="action-button" (click)="filterTodoList('all')">All</button>
+            <button class="action-button" (click)="filterTodoList('active')">Active</button>
+            <button class="action-button" (click)="filterTodoList('completed')">Completed</button>
+            <button class="action-button" (click)="deleteAllCompletedTodoItems()">Clear Completed</button>
+        </div>
+        <div style="margin-top: 1.2rem; color: black;">
+            <i class="fa fa-info-circle"></i>  Double-click to edit a todo <br>
+            <i class="fa fa-info-circle"></i>  Initial list loads from <a href="https://jsonplaceholder.typicode.com/todos" target="_blank"><strong>url</strong></a>.
+        </div>
+    </footer>
+</section>
